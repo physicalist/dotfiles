@@ -1,0 +1,33 @@
+autoload colors; colors
+
+# Fallback for simple terminals 
+if test "$TERM" != 'dumb'; then
+    PS1="%{$fg[blue]%}%c%{$reset_color%} $ "
+    if test ${SSH_CLIENT}; then
+	RPS1="%{$fg_bold[red]%}%m%{$reset_color%}"
+    else
+	RPS1="%{$fg_bold[white]%}%m%{$reset_color%}"
+    fi
+fi
+
+# horribly broken?
+case $TERM in
+    xterm|rxvt-unicode)
+	PS1="${PS1}%{]2;zsh%}"
+
+#	preexec () {
+#            local CMD=${1[(wr)^(*=*|sudo|exec|-*)]}
+#	    print -Pn "\e]2;$1\007"
+#
+#	}
+#	;;
+    screen)
+	PS1="${PS1}%{kzsh\\%}"
+
+#	preexec () {
+#            local CMD=${1[(wr)^(*=*|sudo|exec|-*)]}
+#	    print -Pn "\ek$1\e\\"
+#	}
+#	;;
+esac
+

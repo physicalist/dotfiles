@@ -1,0 +1,62 @@
+##################################################################
+# Key bindings
+# http://mundy.yazzy.org/unix/zsh.php
+# http://www.zsh.org/mla/users/2000/msg00727.html
+bindkey -e
+case $TERM in
+    rxvt-unicode)
+	bindkey "^[[7~" beginning-of-line
+	bindkey "^[[8~" end-of-line
+	;;
+    xterm)
+	bindkey "^[OH" beginning-of-line
+	bindkey "^[OF" end-of-line
+	;;
+    xterm-color)
+	bindkey "^[[H" beginning-of-line
+	bindkey "^[[F" end-of-line
+	;;
+    linux*|screen*)
+	bindkey "^[[1~" beginning-of-line
+	bindkey "^[[4~" end-of-line
+	;;
+esac
+
+
+bindkey "^[q"   push-line
+bindkey " "     magic-space
+
+#typeset -g -A key
+bindkey '^?' backward-delete-char
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[3~' delete-char
+bindkey '^[[4~' end-of-line
+bindkey '^[[5~' up-line-or-history
+bindkey '^[[6~' down-line-or-history
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+#bindkey "^[[5~" history-beginning-search-backward
+#bindkey "^[[6~" history-beginning-search-forward
+#bindkey "^[[A"  history-search-backward
+#bindkey "^[[B"  history-search-forward
+bindkey '^[[C' forward-char
+bindkey '^[[D' backward-char
+
+command-as-root () {
+    local pos=$CURSOR
+    if [[ -n ${BUFFER} ]]; then
+	BUFFER="su -c ${(qqq)BUFFER}"
+    fi
+    CURSOR=$((pos+7))
+}
+zle -N command-as-root
+bindkey "^[r" command-as-root
+
+# taken from ft, predict is one hell of a cool feature, if you know how to
+# handle it. this is why it is off by default.
+autoload -U predict-on
+zle -N predict-on
+zle -N predict-off
+bindkey '^X^Z' predict-on
+bindkey '^Z' predict-off
+
