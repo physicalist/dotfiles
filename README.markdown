@@ -1,25 +1,24 @@
-# -holman- physicalist does dotfiles
+# ~~holman~~ physicalist does dotfiles
 
 ## dotfiles
 
-Your dotfiles are how you personalize your system. These are mine.
+Your dotfiles are how you personalize your system. These are my take, based on
+@holman's [dotfiles repo](https://github.com/holman/dotfiles).
 
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
-
-If you're interested in the philosophy behind why projects like these are
-awesome, you might want to [read my post on the
-subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+Like Zach, I wasn't too fond of having all those single dot files strewn around,
+and after recently having to set up several computers more-less from scratch, I
+decided it's time to get a bit more organized.
+His philosophy on the subject, [detailed in his blog entry](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/), resonated with how I feel about it.
+I have long been a user of "the queen of all shells", ZSH, and had at some point
+fine-tuned my own config set based on a friend's. However, times change, computers
+go by, but my config grew stale.
 
 ## install
 
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/physicalist/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
