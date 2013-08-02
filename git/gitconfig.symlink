@@ -1,3 +1,6 @@
+# git username stored in non-tracked external git file
+[include]
+    path = ~/.dotfiles/git/git.user
 
 [hub]
         protocol = https
@@ -11,6 +14,7 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributers = !$ZSH/bin/git-rank-contributers
         count   = !git shortlog -sn
+	whatadded = log --diff-filter=A
 
 [color]
         diff = auto
@@ -29,7 +33,7 @@
         keepBackup = false
 
 [difftool]
-        prompt = false
+#        prompt = false
 
 [help]
         autocorrect = 1
