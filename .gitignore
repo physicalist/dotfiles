@@ -1,5 +1,11 @@
-sublime2/User/Package\ Control.sublime-settings
-sublime2/User/Package Control.last-run
+# OSX cruft
+.DS_store
+
+# sensitive credentials for git
 git/git.user
 
-.DS_store
+
+# Sublime
+sublime2/User/Package\ Control.sublime-settings
+sublime2/User/Package Control.last-run
+
