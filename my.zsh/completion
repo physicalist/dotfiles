@@ -1,7 +1,7 @@
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion:*' use-cache 'yes'
-zstyle ':completion:*' cache-path ~/.zsh/cache/zcompcache
+zstyle ':completion:*' cache-path $ZSH/cache/zcompcache
 
 zstyle ':completion:*:(g)*vim:*' ignored-patterns '*.o'
 

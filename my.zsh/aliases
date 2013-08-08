@@ -15,7 +15,7 @@ alias cd..="cd .."
 alias hexless='hexdump -C $1 | less'
 
 # OSX-like 'open' command for Linux
-if [ `uname -s` = "GNU/Linux" ]; then	# might want to use $OSTYPE
+if [ `uname -s` = "Linux" ]; then	# might want to use $OSTYPE
 #   alias open='xdg-open'
     open()
     {

@@ -67,7 +67,7 @@ do
     test -d ${dir} && path=(${dir} ${path})
 done
 
-test -d ~/.zsh/functions && fpath=(${fpath} ~/.zsh/functions)
+test -d $ZSH/functions && fpath=(${fpath} $ZSH/functions)
 
 # python path needed by homebrew
 PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"

@@ -20,18 +20,18 @@ unsetopt flowcontrol
   setopt pushdtohome
 
 #--- Variables ---------
-source ~/.zsh/variables
-source ~/.zsh/paths
+source $ZSH/variables
+source $ZSH/paths
 source ~/.profile
 
 #--- Aliases ---------
-source ~/.zsh/aliases
+source $ZSH/aliases
 
 #--- Dircolors ----------
-source ~/.zsh/colors
+source $ZSH/colors
 
 #--- Keybindings ----------
-source ~/.zsh/bindings
-source ~/.zsh/completion
+source $ZSH/bindings
+source $ZSH/completion
 
-#source ~/.zsh/prompt
+#source $ZSH/prompt
