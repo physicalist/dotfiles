@@ -1,0 +1,75 @@
+#--- path settings (system paths) ---
+path=(
+    /{,s}bin
+    # /usr/{,s,local/}bin
+    /usr/{,s}bin
+)
+
+#--- additional custom paths, to be searched first ---
+extrapath=(
+    ~/.scripts
+    $DOT/bin
+    /usr/texbin
+)
+
+# OSX: 
+if [ `uname -s` = "Darwin" ]; then
+  # MacPorts paths first
+  if [ -e /opt/local/bin/port ]; then
+    PKG_PREFIX="/opt"
+    PKG_TOOL="port"
+    PKG_BIN=$PKG_PREFIX/local/bin/$PKG_TOOL #`which $PKG_TOOL` when path not set
+    # for gnutilities
+    COREUTILS_PATH=$PKG_PREFIX/local/libexec/gnubin
+  fi
+  if [ -e /usr/local/bin/brew ]; then
+    PKG_PREFIX="/usr"
+    PKG_TOOL="brew"
+    PKG_BIN=$PKG_PREFIX/local/bin/$PKG_TOOL #`which $PKG_TOOL` when path not set
+    # for gnutilities
+    COREUTILS_PATH=$($PKG_BIN --prefix coreutils)/libexec/gnubin
+  fi
+
+# Python setup for EPD distribution
+#  if [ -e /Library/Frameworks/EPD64.framework ]; then
+#    extrapath=(
+#      /Library/Frameworks/EPD64.framework/Versions/Current/bin
+#      ${extrapath}
+#    )
+#  fi
+  extrapath=(
+    $COREUTILS_PATH
+    #$PKG_PREFIX/local/share/python
+    ${extrapath}
+  )
+
+fi
+
+if [ `uname -s` = "Linux" ]; then
+  # Debian-based only nowadays
+  PKG_PREFIX="/usr"
+  PKG_TOOL="apt-get"
+fi
+
+extrapath=(
+  $PKG_PREFIX/local/{,s}bin
+  ${extrapath}
+)
+
+manpath=(
+  $PKG_PREFIX/local/share/man
+  ${manpath}
+)
+
+
+# add extra paths in front of path list
+for dir in $extrapath
+do
+    test -d ${dir} && path=(${dir} ${path})
+done
+
+test -d ~/.zsh/functions && fpath=(${fpath} ~/.zsh/functions)
+
+# python path needed by homebrew
+PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+
