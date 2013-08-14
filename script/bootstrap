@@ -2,7 +2,19 @@
 #
 # bootstrap installs things.
 
-DOTFILES_ROOT="`pwd`"
+DOT=".dotfiles"
+GIT=`which git`
+
+DOTFILES_ROOT="$HOME/$DOT"
+
+if ! [ -d $DOTFILES_ROOT ]
+  then
+	# fetch repository
+	# maybe base the bootstrap script on homebrew/go ?
+	# ... which then calls bootstrap
+	$GIT clone https://github.com/physicalist/dotfiles.git $DOTIFLES_ROOT
+fi
+
 
 set -e
 
@@ -27,16 +39,21 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.symlink ]
+  if ! [ -f git/git.user ]
   then
-    info 'setup gitconfig'
+    info 'configure git user globally'
 
     user ' - What is your github author name?'
     read -e git_authorname
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+	# append user settings to appropriate file
+	cat >> git/git.user << EOF
+[user]
+        name  = $git_authorname
+        email = $git_authoremail
+EOF
 
     success 'gitconfig'
   fi
