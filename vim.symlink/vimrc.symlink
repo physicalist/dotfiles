@@ -1,0 +1,15 @@
+" super-minimal .vimrc by @tpope
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+" own settings
+" -avoid cluttering in work directories
+set backup
+set backupdir=~/.vim/.backup
+set directory=~/.vim/.tmp
+
+" -nice output
+set number	" line numbers on by default
+set ruler	" show current line & column
+

@@ -1,9 +1,15 @@
 # OSX cruft
 .DS_store
 
-# sensitive credentials for git
+# sensitive credentials
+# - for git
 git/git.user
 
+# - for shell
+localrc.zsh
+
+# VIM cruft
+.netrwhist
 
 # Sublime
 sublime2/User/Package\ Control.sublime-settings
