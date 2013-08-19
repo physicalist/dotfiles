@@ -51,6 +51,7 @@ source $ZSH/oh-my-zsh.sh
 # import paths
 source $DOT/zsh/paths.zsh       # load manually:
 source $DOT/zsh/aliases.zsh     # temporary workaround until merge complete
+source $DOT/zsh/variables.zsh
 
 # default editor on OSX
 export EDITOR=mvim

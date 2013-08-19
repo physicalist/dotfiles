@@ -1,0 +1,64 @@
+#--- some standard variables ---
+export EDITOR=`which vim`
+export PAGER=less
+
+export DIRSTACKSIZE=8
+export LISTMAX=0
+export REPORTTIME=120
+export TIMEFMT="real %E user %U system %S: %P for %J"
+export GREP_OPTIONS="--color=auto"
+
+#--- Settings for less ---
+export LESS='-FRSX'
+export LESSCHARSET='UTF-8'
+export LESS_TERMCAP_mb=$'\E[0;31m'
+export LESS_TERMCAP_md=$'\E[0;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[0;32m'
+
+#--- History setting -------
+export HISTFILE=$ZSH/history/$(hostname)
+export HISTSIZE=1000
+export SAVEHIST=1000
+
+#------------------------------
+# Window title
+#------------------------------
+case $TERM in
+    *xterm*|rxvt|rxvt-unicode|rxvt-256color|(dt|k|E)term)
+		precmd () { print -Pn "\e]0;$TERM - (%L) [%n@%M]%# 
+[%~]\a" } 
+		preexec () { print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] 
+($1)\a" }
+	;;
+    screen)
+    	precmd () { 
+			print -Pn "\e]83;title \"$1\"\a" 
+			print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a" 
+		}
+		preexec () { 
+			print -Pn "\e]83;title \"$1\"\a" 
+			print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] 
+($1)\a" 
+		}
+	;; 
+esac
+
+#--- hash some directories ---
+hashd ()
+{
+    test -d $2 && hash -d $1=$2
+}
+hashd code   ~/Coding
+hashd down   ~/Download
+hashd rc     /etc/rc.d
+hashd log    /var/log
+hashd music  ~/Music
+hashd film   ~/Movies
+hashd photo  ~/Pictures 
+#hashd backup /media/upper/backup
+
+
