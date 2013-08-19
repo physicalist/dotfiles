@@ -13,3 +13,11 @@ set directory=~/.vim/.tmp
 set number	" line numbers on by default
 set ruler	" show current line & column
 
+" -colors get
+if has('gui_running')
+    colorscheme solarized
+    set background=light
+else
+    colorscheme lucius
+    set background=dark
+endif
