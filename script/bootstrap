@@ -2,10 +2,10 @@
 #
 # bootstrap installs things.
 
-DOT=".dotfiles"
+DOTF=".dotfiles"
 GIT=`which git`
 
-DOTFILES_ROOT="$HOME/$DOT"
+DOTFILES_ROOT="$HOME/$DOTF"
 
 if ! [ -d $DOTFILES_ROOT ]
   then
@@ -13,6 +13,11 @@ if ! [ -d $DOTFILES_ROOT ]
 	# maybe base the bootstrap script on homebrew/go ?
 	# ... which then calls bootstrap
 	$GIT clone https://github.com/physicalist/dotfiles.git $DOTIFLES_ROOT
+
+        # init submodules
+        cd $DOTFILES_ROOT
+        $GIT submodules init
+        $GIT submodules update
 fi
 
 
