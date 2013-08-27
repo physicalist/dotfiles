@@ -20,7 +20,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[0;32m'
 
 #--- History setting -------
-export HISTFILE=$ZSH/history/$(hostname)
+export HISTFILE=$DOT/zsh/history/$(hostname)
 export HISTSIZE=1000
 export SAVEHIST=1000
 

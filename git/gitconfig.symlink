@@ -25,7 +25,7 @@
 
 [core]
         excludesfile = ~/.dotfiles/git/git.ignore
-	editor = vim
+        editor = `which vim`
 
 [apply]
         whitespace = nowarn
