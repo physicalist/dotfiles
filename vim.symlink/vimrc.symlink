@@ -10,8 +10,9 @@ set backupdir=~/.vim/.backup
 set directory=~/.vim/.tmp
 
 " -nice output
-set number	" line numbers on by default
-set ruler	" show current line & column
+set number      " line numbers on by default
+set ruler       " show current line & column
+set list        " display special characters (tab, space_at_end, Win-CRLF...)
 
 " -colors get
 if has('gui_running')

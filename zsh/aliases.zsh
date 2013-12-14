@@ -1,6 +1,6 @@
 # ZSH aliases
 # some sane defaults
-if [ `uname -s` = "Linux" ]
+if [ `uname -s` = "Linux" ] || [ -e `$(which brew) --prefix coreutils` ]
 then
    alias ls='ls --color=auto -F'
 fi
@@ -11,9 +11,13 @@ alias cls=clear
 alias ..="cd .."
 alias cd..="cd .."
 
+# -- coding helpers ---
+# (should go to separate files)
+#
 # convenient shorties for opening and analyzing (hexdump) files
 alias hexless='hexdump -C $1 | less'
-
+# qt-based ipython with inline matplotlib graphs
+alias qpython='ipython qtconsole --pylab=inline'
 
 # simple chmod
 for i in {0..7}; do

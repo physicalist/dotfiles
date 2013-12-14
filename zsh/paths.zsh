@@ -12,8 +12,10 @@ extrapath=(
     /usr/texbin
 )
 
-# OSX: 
+# OSX: FIX
 if [ `uname -s` = "Darwin" ]; then
+  PKG_BIN=`which brew`
+
   # MacPorts paths first
   if [ -e /opt/local/bin/port ]; then
     PKG_PREFIX="/opt"
@@ -28,6 +30,7 @@ if [ `uname -s` = "Darwin" ]; then
     PKG_BIN=$PKG_PREFIX/local/bin/$PKG_TOOL #`which $PKG_TOOL` when path not set
     # for gnutilities
     COREUTILS_PATH=$($PKG_BIN --prefix coreutils)/libexec/gnubin
+    COREUTILS_MAN=$($PKG_BIN --prefix coreutils)/libexec/gnuman
   fi
 
 # Python setup for EPD distribution
