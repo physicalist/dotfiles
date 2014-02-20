@@ -1,21 +1,3 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim.symlink/bundle/vim-sensible"]
-	path = vim.symlink/bundle/vim-sensible
-	url = https://github.com/tpope/vim-sensible.git
-[submodule "vim.symlink/bundle/vim-colors-solarized"]
-	path = vim.symlink/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
-[submodule "vim.symlink/bundle/vim-fugitive"]
-	path = vim.symlink/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "vim.symlink/bundle/vim-pathogen"]
-	path = vim.symlink/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen
-[submodule "vim.symlink/bundle/vim-colors-lucius"]
-	path = vim.symlink/bundle/vim-colors-lucius
-	url = https://github.com/jonathanfilip/vim-lucius
-[submodule "vim.symlink/bundle/vim-sleuth"]
-	path = vim.symlink/bundle/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth
